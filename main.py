@@ -38,6 +38,10 @@ def list_items():
     """Return all items."""
     return list(db.values())
 
+@app.get("/hello", response_model=list[Item])
+def hello():
+    """Return all items."""
+    return "hi"
 
 @app.post("/items", response_model=Item, status_code=201)
 def create_item(item: ItemCreate):
